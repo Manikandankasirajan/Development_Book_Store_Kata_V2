@@ -22,3 +22,8 @@ test("return 95 by applying 5% discount for two unique book purchase", () => {
 	const cart = ["Clean Code", "The Clean Coder"];
 	expect(bookStore(cart)).toBe(95);
 });
+
+test("catch dulicate copies in cart", () => {
+	const cart = ["Clean Code", "Clean Code"];
+	expect(bookStore(cart)).toBe("The cart has duplication...");
+});

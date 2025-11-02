@@ -1,4 +1,5 @@
 import calculatePrice from "./utils/calculatePrice";
+import hasDuplicates from "./utils/hasDuplicates";
 import validateCartForInvalidBook from "./utils/validateCartForInvalidBook";
 
 export default function bookStore(cart) {
@@ -8,7 +9,11 @@ export default function bookStore(cart) {
 
 	validateCartForInvalidBook(cart);
 
-	const bookQuantity = cart.length;
-	const price = calculatePrice(bookQuantity);
-	return price;
+	if (hasDuplicates(cart)) {
+		return "The cart has duplication...";
+	} else {
+		const bookQuantity = cart.length;
+		const price = calculatePrice(bookQuantity);
+		return price;
+	}
 }
