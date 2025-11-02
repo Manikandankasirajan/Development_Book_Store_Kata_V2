@@ -1,5 +1,10 @@
+import calculateDiscountPrice from "./calculateDiscountPrice";
+
 const BOOK_PRICE = 50;
+
 export default function calculatePrice(bookQuantity) {
-	const price = bookQuantity * BOOK_PRICE;
-	return price;
+	const actualPrice = bookQuantity * BOOK_PRICE;
+	const discountPrice = calculateDiscountPrice(bookQuantity, actualPrice);
+	const priceAfterDiscount = actualPrice - discountPrice;
+	return priceAfterDiscount;
 }

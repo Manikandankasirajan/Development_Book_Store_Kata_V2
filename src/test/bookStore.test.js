@@ -17,3 +17,8 @@ test("throws exception for invalid books in the cart", () => {
 	expect(() => bookStore(cart)).toThrow(Error);
 	expect(() => bookStore(cart)).toThrow("Invalid Book in the cart...");
 });
+
+test("return 95 by applying 5% discount for two unique book purchase", () => {
+	const cart = ["Clean Code", "The Clean Coder"];
+	expect(bookStore(cart)).toBe(95);
+});
