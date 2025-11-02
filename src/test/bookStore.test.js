@@ -5,3 +5,8 @@ test("throws exception for empty cart", () => {
 	expect(() => bookStore(cart)).toThrow(Error);
 	expect(() => bookStore(cart)).toThrow("The Cart is Empty...");
 });
+
+test("returns 50 for single book purchase", () => {
+	const cart = ["Clean Code"];
+	expect(bookStore(cart)).toBe(50);
+});
