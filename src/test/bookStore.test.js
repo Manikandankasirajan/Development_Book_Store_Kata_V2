@@ -32,3 +32,8 @@ test("return 100 for two same book in the cart", () => {
 	const cart = ["Clean Code", "Clean Code"];
 	expect(bookStore(cart)).toBe(100);
 });
+
+test("return 135 for three unique book purchase", () => {
+	const cart = ["Clean Code", "The Clean Coder", "Clean Architecture"];
+	expect(bookStore(cart)).toBe(135);
+});
