@@ -1,4 +1,5 @@
-import calculatePrice from "./utils/calculatePrice";
+import customCheckoutRule from "./checkoutRules/customCheckoutRule";
+import defaultCheckoutRule from "./checkoutRules/defaultCheckoutRule";
 import hasDuplicates from "./utils/hasDuplicates";
 import validateCartForInvalidBook from "./utils/validateCartForInvalidBook";
 
@@ -10,10 +11,8 @@ export default function bookStore(cart) {
 	validateCartForInvalidBook(cart);
 
 	if (hasDuplicates(cart)) {
-		return "The cart has duplication...";
+		return customCheckoutRule(cart);
 	} else {
-		const bookQuantity = cart.length;
-		const price = calculatePrice(bookQuantity);
-		return price;
+		return defaultCheckoutRule(cart);
 	}
 }

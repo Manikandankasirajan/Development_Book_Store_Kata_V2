@@ -23,7 +23,12 @@ test("return 95 by applying 5% discount for two unique book purchase", () => {
 	expect(bookStore(cart)).toBe(95);
 });
 
-test("catch dulicate copies in cart", () => {
+// test("catch dulicate copies in cart", () => {
+// 	const cart = ["Clean Code", "Clean Code"];
+// 	expect(bookStore(cart)).toBe("The cart has duplication...");
+// });
+
+test("return 100 for two same book in the cart", () => {
 	const cart = ["Clean Code", "Clean Code"];
-	expect(bookStore(cart)).toBe("The cart has duplication...");
+	expect(bookStore(cart)).toBe(100);
 });
