@@ -46,3 +46,13 @@ describe("test cases for three book combo", () => {
 		expect(bookStore(cart)).toBe(150);
 	});
 });
+
+test("return 160 for four unique book purchase", () => {
+	const cart = [
+		"Clean Code",
+		"The Clean Coder",
+		"Clean Architecture",
+		"Test Driven Development by Example",
+	];
+	expect(bookStore(cart)).toBe(160);
+});
