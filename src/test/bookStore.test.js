@@ -148,4 +148,22 @@ describe("test case for custom book combination", () => {
 		];
 		expect(bookStore(cart)).toBe(320);
 	});
+	test("return 507 after by optimising book set of 5 & 5 & 3 into sets of 5 & 4 & 4 books for better discount", () => {
+		const cart = [
+			"Clean Code",
+			"Clean Code",
+			"The Clean Coder",
+			"The Clean Coder",
+			"The Clean Coder",
+			"Clean Architecture",
+			"Clean Architecture",
+			"Clean Architecture",
+			"Test Driven Development by Example",
+			"Test Driven Development by Example",
+			"Working Effectively With Legacy Code",
+			"Working Effectively With Legacy Code",
+			"Working Effectively With Legacy Code",
+		];
+		expect(bookStore(cart)).toBe(507);
+	});
 });
