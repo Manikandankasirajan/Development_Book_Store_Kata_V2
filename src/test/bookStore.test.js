@@ -81,13 +81,55 @@ describe("test cases for four book combo", () => {
 	});
 });
 
-test("return 187 for five unique book purchase", () => {
-	const cart = [
-		"Clean Code",
-		"The Clean Coder",
-		"Clean Architecture",
-		"Test Driven Development by Example",
-		"Working Effectively With Legacy Code",
-	];
-	expect(bookStore(cart)).toBe(187);
+describe("test cases for five books combo", () => {
+	test("return 187 for five unique book purchase", () => {
+		const cart = [
+			"Clean Code",
+			"The Clean Coder",
+			"Clean Architecture",
+			"Test Driven Development by Example",
+			"Working Effectively With Legacy Code",
+		];
+		expect(bookStore(cart)).toBe(187);
+	});
+	test("return 210 for two copy of same book and three unique book purchase", () => {
+		const cart = [
+			"Clean Code",
+			"Clean Code",
+			"Clean Architecture",
+			"Test Driven Development by Example",
+			"Working Effectively With Legacy Code",
+		];
+		expect(bookStore(cart)).toBe(210);
+	});
+	test("return 235 for three copy of same book and two unique book purchase", () => {
+		const cart = [
+			"Clean Code",
+			"Clean Code",
+			"Clean Code",
+			"Test Driven Development by Example",
+			"Working Effectively With Legacy Code",
+		];
+		expect(bookStore(cart)).toBe(235);
+	});
+	test("return 245 for four copy of same book and one unique book purchase", () => {
+		const cart = [
+			"Clean Code",
+			"Clean Code",
+			"Clean Code",
+			"Clean Code",
+			"Working Effectively With Legacy Code",
+		];
+		expect(bookStore(cart)).toBe(245);
+	});
+	test("return 250 for five copy of same book", () => {
+		const cart = [
+			"Clean Code",
+			"Clean Code",
+			"Clean Code",
+			"Clean Code",
+			"Clean Code",
+		];
+		expect(bookStore(cart)).toBe(250);
+	});
 });
