@@ -47,12 +47,36 @@ describe("test cases for three book combo", () => {
 	});
 });
 
-test("return 160 for four unique book purchase", () => {
-	const cart = [
-		"Clean Code",
-		"The Clean Coder",
-		"Clean Architecture",
-		"Test Driven Development by Example",
-	];
-	expect(bookStore(cart)).toBe(160);
+describe("test cases for four book combo", () => {
+	test("return 160 for four unique book purchase", () => {
+		const cart = [
+			"Clean Code",
+			"The Clean Coder",
+			"Clean Architecture",
+			"Test Driven Development by Example",
+		];
+		expect(bookStore(cart)).toBe(160);
+	});
+	test("return 185 for two copy of same book and two unique book", () => {
+		const cart = [
+			"Clean Code",
+			"Clean Code",
+			"Clean Architecture",
+			"Test Driven Development by Example",
+		];
+		expect(bookStore(cart)).toBe(185);
+	});
+	test("return 195 for three copy of same book and one unique book", () => {
+		const cart = [
+			"Clean Code",
+			"Clean Code",
+			"Clean Code",
+			"Test Driven Development by Example",
+		];
+		expect(bookStore(cart)).toBe(195);
+	});
+	test("return 200 for four copy of same book", () => {
+		const cart = ["Clean Code", "Clean Code", "Clean Code", "Clean Code"];
+		expect(bookStore(cart)).toBe(200);
+	});
 });
