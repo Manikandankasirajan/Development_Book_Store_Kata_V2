@@ -1,21 +1,31 @@
 import bookStore from "../bookStore";
-test("throws exception for empty cart", () => {
-	const cart = [];
-	expect(() => bookStore(cart)).toThrow();
-	expect(() => bookStore(cart)).toThrow(Error);
-	expect(() => bookStore(cart)).toThrow("The Cart is Empty...");
+
+describe("test cases for exception handling", () => {
+	test("throws exception for empty cart", () => {
+		const cart = [];
+		expect(() => bookStore(cart)).toThrow();
+		expect(() => bookStore(cart)).toThrow(Error);
+		expect(() => bookStore(cart)).toThrow("The Cart is Empty...");
+	});
+	test("throws exception for invalid books in the cart", () => {
+		const cart = ["Clean"];
+		expect(() => bookStore(cart)).toThrow();
+		expect(() => bookStore(cart)).toThrow(Error);
+		expect(() => bookStore(cart)).toThrow("Invalid Book in the cart...");
+	});
+	test("throws exception for null value in cart", () => {
+		const cart = null;
+		expect(() => bookStore(cart)).toThrow();
+		expect(() => bookStore(cart)).toThrow(Error);
+		expect(() => bookStore(cart)).toThrow("Something went wrong...");
+	});
 });
 
-test("returns 50 for single book purchase", () => {
-	const cart = ["Clean Code"];
-	expect(bookStore(cart)).toBe(50);
-});
-
-test("throws exception for invalid books in the cart", () => {
-	const cart = ["Clean"];
-	expect(() => bookStore(cart)).toThrow();
-	expect(() => bookStore(cart)).toThrow(Error);
-	expect(() => bookStore(cart)).toThrow("Invalid Book in the cart...");
+describe("test case for one book purchase", () => {
+	test("returns 50 for single book purchase", () => {
+		const cart = ["Clean Code"];
+		expect(bookStore(cart)).toBe(50);
+	});
 });
 
 describe("test cases for two book combo", () => {
