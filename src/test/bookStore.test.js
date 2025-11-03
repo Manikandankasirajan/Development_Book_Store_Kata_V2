@@ -80,3 +80,14 @@ describe("test cases for four book combo", () => {
 		expect(bookStore(cart)).toBe(200);
 	});
 });
+
+test("return 187 for five unique book purchase", () => {
+	const cart = [
+		"Clean Code",
+		"The Clean Coder",
+		"Clean Architecture",
+		"Test Driven Development by Example",
+		"Working Effectively With Legacy Code",
+	];
+	expect(bookStore(cart)).toBe(187);
+});
